@@ -27,6 +27,7 @@ from xbee import ZigBee
 from datetime import datetime
 import serial
 import struct
+from subprocess import call #import module for executing shell command
  
 # PORT = 'COM5' #Select the correct COM
 PORT = '/dev/tty.usbserial-A703D14M'
@@ -61,6 +62,15 @@ while True:
             #print sa,' ',rf,' t=',t,'h=',h
             
             print sa, '\t', str(datetime.now().date()), '\t', str(datetime.now().time()) ,w ,'\t', v, '\t' ,i, '\t', k #' pf=',pf
+            # execute php command for inserting data to MySQL DB
+            call('php /Users/gtrdp/Sites/xbee-power-meter/db.php ' +
+                 sa + ' ' +
+                 str(round(w,9)) + ' ' +
+                 str(round(v,9)) + ' ' +
+                 str(round(i,9)) + ' ' +
+                 str(round(k,9))
+                , shell=True)
+
         # if it is not two floats show me what I received
         else:
             print 'test2'
