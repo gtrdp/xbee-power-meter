@@ -16,6 +16,9 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
+    <!-- Morris CSS -->
+    <link rel="stylesheet" href="css/morris.css">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -60,7 +63,8 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Usage Chart</h2>
+          <div id="myfirstchart" style="height: 250px;"></div>
          
         </div>
       </div>
@@ -71,6 +75,30 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--<script src="../../assets/js/docs.min.js"></script>-->
+	<script src="js/raphael-min.js"></script>
+	<script src="js/morris.min.js"></script>
+
+	<script type="text/javascript">
+		new Morris.Line({
+		  // ID of the element in which to draw the chart.
+		  element: 'myfirstchart',
+		  // Chart data records -- each entry in this array corresponds to a point on
+		  // the chart.
+		  data: [
+		    { year: '2008', value: 20 },
+		    { year: '2009', value: 10 },
+		    { year: '2010', value: 5 },
+		    { year: '2011', value: 5 },
+		    { year: '2012', value: 20 }
+		  ],
+		  // The name of the data record attribute that contains x-values.
+		  xkey: 'year',
+		  // A list of names of data record attributes that contain y-values.
+		  ykeys: ['value'],
+		  // Labels for the ykeys -- will be displayed when you hover over the
+		  // chart.
+		  labels: ['Value']
+		});
+	</script>
   </body>
 </html>
