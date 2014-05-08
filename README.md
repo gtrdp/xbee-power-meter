@@ -1,4 +1,4 @@
-xbee-power-meter
+XBee Power Meter
 ================
 This program measures power consumption and stores it into MySQL database.
 
@@ -6,20 +6,34 @@ This program measures power consumption and stores it into MySQL database.
 
 Setup Instructions
 ------------------
-Under construction.
+1. Make sure you have these followings software installed on your computer:
+	- LAMP Stack.
+	- Python.
+	- XBee Explorer USB driver (FTDI). 
+2. Then install these libraries:
+	- [Python MySQLd](http://stackoverflow.com/questions/372885/how-do-i-connect-to-a-mysql-database-in-python).
+	- [PySerial](https://pypi.python.org/pypi/pyserial)
+	- [Python XBee](https://pypi.python.org/pypi/XBee/2.1.0).
+3. Download the source code or clone this repository.
+4. Change this line of code in power_monitor.py according to your device:
 
-Libraries
----------
-- [Python MySQLd](http://stackoverflow.com/questions/372885/how-do-i-connect-to-a-mysql-database-in-python).
-- [PySerial](https://pypi.python.org/pypi/pyserial)
-- [Python XBee](https://pypi.python.org/pypi/XBee/2.1.0)
+		PORT = '/dev/tty.usbserial-A703D14M'
+
+5. Create new database in MySQL using SQL Dump included in this repo.
+
+
+To-Do's
+-------
+- Integrate with CodeIgniter [?].
+
 
 Development Log
 ---------------
 **Thu May  8 08:42:27 WIB 2014**
 
 - Configuring database connection: OK
-- Initiating dashboard layout with bootstrap
+- Initializing dashboard layout with bootstrap
+- Initializing graph with morris.js.
 
 **Wed May  7 11:04:59 WIB 2014**
 
