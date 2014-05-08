@@ -19,6 +19,7 @@ Development Log
 **Thu May  8 08:42:27 WIB 2014**
 
 - Configuring database connection: OK
+- Initiating dashboard layout with bootstrap
 
 **Wed May  7 11:04:59 WIB 2014**
 
