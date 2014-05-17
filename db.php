@@ -23,3 +23,5 @@ $query =	"INSERT INTO history (sensor_ID, watt, voltage, current, energy)".
 			"VALUES ('$sensor_ID', '$watt', '$voltage', '$current', '$energy')";
 
 mysql_query($query);
+
+// =====================
