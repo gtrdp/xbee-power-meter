@@ -6,7 +6,7 @@ This program measures power consumption and stores it into MySQL database.
 
 Setup Instructions
 ------------------
-1. Make sure you have these followings software installed on your computer:
+1. Make sure you have this following software installed on your computer:
 	- LAMP Stack.
 	- Python.
 	- XBee Explorer USB driver (FTDI). 
@@ -25,19 +25,18 @@ Setup Instructions
 
 		$ python /path/to/power_meter.py
 	
-	Then it will print out the retrified information and insert it into database.
+	Then it will print out the obtained information and insert it into database.
 7. Open up this url in your browser to see realtime graph:
 
-		http:://localhost/xbee-power-meter/
-
-
-To-Do's
--------
-- Integrate with CodeIgniter [?].
+		http://localhost/xbee-power-meter/
 
 
 Development Log
 ---------------
+**Sat May 17 15:24:51 WIB 2014**
+
+- Realtime graph is now working.
+
 **Thu May  8 08:42:27 WIB 2014**
 
 - Configuring database connection: OK
