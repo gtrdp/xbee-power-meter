@@ -1,12 +1,18 @@
 <?php
-// connect to DB
-mysql_connect('localhost', 'root', 'root');
-mysql_select_db('xbee_power');
+if(isset($_POST['device-address']) && isset($_POST['char'])) {
+  
+  $device_address = $_POST['device-address'];
+  $char = $_POST['char'];
 
-$query = "SELECT * FROM history ORDER BY id DESC LIMIT 0, 20";
-$result = mysql_query($query);
-
+  if(strlen($device_address) < 8) {
+    $alert = '<div class="alert alert-danger">Wrong address! Address must be 8 hexadecimals!</div>';
+  }else{
+    $foo = shell_exec('python send-char.py '.$device_address.' '.$char);
+    $alert = '<div class="alert alert-success">'.$foo.'</div>';
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,15 +65,41 @@ $result = mysql_query($query);
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="index.php">Dashboard</a></li>
-            <li><a href="send-char.php">Send Char</a></li>
+            <li><a href="index.php">Dashboard</a></li>
+            <li class="active"><a href="send-char.php">Send Char</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Send Character</h1>
 
-          <h2 class="sub-header">Chart for Address ...</h2>
-          <div id="powerchart" style="height: 250px;"></div>         
+          <?php if(isset($alert)) echo $alert; ?>
+
+          <form id="send-char-form" class="form-horizontal" role="form" method="post">
+            <div class="form-group">
+              <label for="device-address" class="col-sm-2 control-label">Address</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="device-address"
+                  placeholder="eg. 409f40e8"
+                  name="device-address"
+                  value="<?php if(isset($device_address)) echo $device_address;?>"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="char" class="col-sm-2 control-label">Character (s)</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="char" name="char"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Send!</button>
+              </div>
+            </div>
+          </form>  
         </div>
       </div>
     </div>
@@ -81,36 +113,7 @@ $result = mysql_query($query);
   	<script src="js/morris.min.js"></script>
 
   	<script type="text/javascript">
-  		var graph = Morris.Line({
-  		  // ID of the element in which to draw the chart.
-  		  element: 'powerchart',
-  		  // Chart data records -- each entry in this array corresponds to a point on
-  		  // the chart.
-  		  data: [
-        <?php while($row = mysql_fetch_object($result)): ?>
-  		    { time: '<?php echo $row->datetime; ?>', watt: <?php echo $row->watt; ?>, energy: <?php echo $row->energy; ?>},
-        <?php endwhile; ?>
-  		  ],
-  		  // The name of the data record attribute that contains x-values.
-  		  xkey: 'time',
-  		  // A list of names of data record attributes that contain y-values.
-  		  ykeys: ['watt', 'energy'],
-  		  // Labels for the ykeys -- will be displayed when you hover over the
-  		  // chart.
-  		  labels: ['Power (Watt)', 'Energy'],
-
-        lineColors: ['#00991A', '#FFB114']
-  		});
-
-      // function to update the graph
-      function update() {
-        $.getJSON('http://localhost/~gtrdp/xbee-power-meter/ajax.php', function(data){
-          graph.setData(data);
-        });
-      }
-
-      // set interval for every 1 second
-      setInterval(update, 1000);
+  		
   	</script>
   </body>
 </html>
