@@ -31,6 +31,11 @@ Setup Instructions
 		http://localhost/xbee-power-meter/
 
 
+To-Do's
+-------
+- Write complete documentation.
+
+
 Development Log
 ---------------
 **Sat May 17 15:24:51 WIB 2014**

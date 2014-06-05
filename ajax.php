@@ -14,3 +14,10 @@ while($row = mysql_fetch_object($result)){
 
 // var_dump($foo);
 echo json_encode($foo);
+
+$sql = "SELECT id_kafe, nama, pict, penjelasan FROM kafe
+		JOIN sponsor ON sponsor.id_kafe = kafe.id";
+
+while($row){
+	echo $row->id_kafe . ',' . $row->nama . "\r\n";
+}
