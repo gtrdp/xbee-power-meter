@@ -2,7 +2,7 @@
 <html class="no-js">
     
     <head>
-        <title><?php echo (strlen($page) < 5)? strtoupper($page):ucwords($page); ?> | WSN+IP</title>
+        <title>Dashboard</title>
         <!-- Bootstrap -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
@@ -29,7 +29,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['full_name']; ?><i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> John Doe <i class="caret"></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -46,21 +46,8 @@
                             <li <?php if($page == 'dashboard') echo "class=\"active\"";?>>
                                 <a href="dashboard.php">Dashboard</a>
                             </li>
-                            <li class="dropdown <?php if($page == 'iqrf') echo "active";?>">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">IQRF <b class="caret"></b>
-
-                                </a>
-                                <ul class="dropdown-menu" id="menu1">
-                                    <li>
-                                        <a href="device.php?device=iqrf">View Devices</a>
-                                    </li>
-                                    <li>
-                                        <a href="add-device.php?device=iqrf">Add New Device</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="dropdown <?php if($page == 'xbee') echo "active";?>">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">XBee Relay <b class="caret"></b>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">XBee Network <b class="caret"></b>
 
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">

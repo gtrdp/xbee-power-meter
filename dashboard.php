@@ -1,4 +1,7 @@
-<?php include('pages/header.php'); ?> 
+<?php
+$page = 'dashboard';
+include('pages/header.php');
+?> 
 
 
 <div class="container-fluid">
@@ -40,13 +43,13 @@
                         </div>
                         <div class="block-content collapse in">
                             <div class="span6">
-                                <div class="chart chart-relay" data-percent="<?php echo $relay1_percentage; ?>">
-                                    <span class="status-relay"><?php echo $relay1; ?></span>
+                                <div class="chart chart-relay" data-percent="0">
+                                    <span class="status-relay">OFF</span>
                                 </div>
                                 <div class="chart-bottom-heading">
                                     <span class="label label-success">Relay 1</span><br><br>
                                     <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                        <input class="relay-checkbox" type="checkbox" <?php echo $checked1; ?> >
+                                        <input class="relay-checkbox" type="checkbox" >
                                     </div>
                                 </div>
                             </div>
