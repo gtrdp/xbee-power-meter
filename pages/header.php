@@ -15,6 +15,11 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+        <!-- Morris CSS -->
+        <link rel="stylesheet" href="vendors/morris.css">
+
+        <link rel="shortcut icon" href="bootstrap/img/ico-wifi.png">
     </head>
     
     <body>

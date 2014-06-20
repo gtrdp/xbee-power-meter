@@ -38,8 +38,8 @@ include('pages/header.php');
                         <?php else: ?>
 
                         <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">Relay Status of ATMY <?php echo $atmy; ?></div>
-                            <div class="pull-right"><a href="device.php?device=xbee"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="muted pull-left">XBee Control Panel</div>
+                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More</span></a></div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="row-fluid">
@@ -58,8 +58,8 @@ include('pages/header.php');
                                         </div>
 
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -72,8 +72,8 @@ include('pages/header.php');
                                     <br>
                                     <div class="row-fluid">
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -83,8 +83,8 @@ include('pages/header.php');
                                             </div>
                                         </div>
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -123,8 +123,8 @@ include('pages/header.php');
                         <?php else: ?>
 
                         <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">Relay Status of ATMY <?php echo $atmy; ?></div>
-                            <div class="pull-right"><a href="device.php?device=xbee"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="muted pull-left">XBee Control Panel</div>
+                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More</span></a></div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="row-fluid">
@@ -143,8 +143,8 @@ include('pages/header.php');
                                         </div>
 
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -157,8 +157,8 @@ include('pages/header.php');
                                     <br>
                                     <div class="row-fluid">
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -168,8 +168,8 @@ include('pages/header.php');
                                             </div>
                                         </div>
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                                <span class="status-relay"><?php echo $relay2; ?></span>
+                                            <div class="chart chart-relay" data-percent="0">
+                                                <span class="status-relay">OFF</span>
                                             </div>
                                             <div class="chart-bottom-heading">
                                                 <span class="label label-info">Relay 2</span><br><br>
@@ -181,8 +181,8 @@ include('pages/header.php');
                                     </div>
                                 </div>
                                 <div class="span6">
-                                    <br>
-                                    <div node="<?php echo $node_address; ?>" class="temperatureGauge" style="height:340px"></div>
+                                    <br><br>
+                                    <div id="powerchart" style="height: 340px;"></div>
                                 </div>
                             
                         </div>

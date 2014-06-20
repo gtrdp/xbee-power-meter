@@ -19,13 +19,13 @@ $result = mysql_query($query);
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="bootstrap3/css/dashboard.css" rel="stylesheet">
 
     <!-- Morris CSS -->
-    <link rel="stylesheet" href="css/morris.css">
+    <link rel="stylesheet" href="bootstrap3/css/morris.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -67,7 +67,7 @@ $result = mysql_query($query);
           <h1 class="page-header">Dashboard</h1>
 
           <h2 class="sub-header">Chart for Address ...</h2>
-          <div id="powerchart" style="height: 250px;"></div>         
+          <div id="powerchart" style="height: 250px;"></div>
         </div>
       </div>
     </div>
@@ -75,10 +75,10 @@ $result = mysql_query($query);
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  	<script src="js/raphael-min.js"></script>
-  	<script src="js/morris.min.js"></script>
+    <script src="bootstrap3/js/jquery.min.js"></script>
+    <script src="bootstrap3/js/bootstrap.min.js"></script>
+  	<script src="bootstrap3/js/raphael-min.js"></script>
+  	<script src="bootstrap3/js/morris.min.js"></script>
 
   	<script type="text/javascript">
   		var graph = Morris.Line({
