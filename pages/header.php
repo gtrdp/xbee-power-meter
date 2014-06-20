@@ -52,10 +52,10 @@
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="device.php?device=xbee">View Devices</a>
+                                        <a href="show-device.php">View Devices</a>
                                     </li>
                                     <li>
-                                        <a href="add-device.php?device=xbee">Add New Device</a>
+                                        <a href="add-device.php">Add New Device</a>
                                     </li>
                                 </ul>
                             </li>
@@ -64,31 +64,13 @@
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="list.php?list=profile">View/Edit Profile</a>
+                                        <a href="show-profile.php">View/Edit Profile</a>
                                     </li>
                                     <li>
-                                        <a href="new-profile.php">Add New Profile</a>
+                                        <a href="add-profile.php">Add New Profile</a>
                                     </li>
                                 </ul>
                             </li>
-                            <?php if($_SESSION['superuser'] == 1): ?>
-                            <li class="dropdown <?php if($page == 'user') echo "active";?>">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Users <i class="caret"></i>
-
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="profile.php">My Profile</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="list.php?list=user">User List</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="new-user.php">Add New User</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <?php endif; ?>
                             <li <?php if($page == 'about') echo "class=\"active\"";?>>
                                 <a href="about.php">About</a>
                             </li>

@@ -7,16 +7,11 @@
             <a href="dashboard.php"><i class="icon-chevron-right"></i> Dashboard</a>
         </li>
         <li <?php if($page == 'xbee') echo 'class="active"';?>>
-            <a href="device.php?device=iqrf"><i class="icon-chevron-right"></i> XBee Network</a>
+            <a href="show-device.php"><i class="icon-chevron-right"></i> XBee Network</a>
         </li>
         <li <?php if($page == 'profile') echo 'class="active"';?>>
-            <a href="list.php?list=profile"><i class="icon-chevron-right"></i> Profile</a>
+            <a href="show-profile.php"><i class="icon-chevron-right"></i> Profile</a>
         </li>
-        <?php if($_SESSION['superuser'] == 1): ?>
-        <li <?php if($page == 'user') echo 'class="active"';?>>
-            <a href="list.php?list=user"><i class="icon-chevron-right"></i> Users</a>
-        </li>
-        <?php endif; ?>
         <li <?php if($page == 'about') echo 'class="active"';?>>
             <a href="about.php"><i class="icon-chevron-right"></i> About</a>
         </li>

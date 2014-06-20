@@ -42,27 +42,6 @@
             });
         });
         </script>
-        <script>
-        // Script for keep updating every 300 milisecond
-        $(document).ready(function(){
-            setInterval(function(){getTemperature()}, 300);
-        });
-
-        function getTemperature(){
-            $('.temperatureGauge').each(function(){
-                var theObject = $(this);
-                var nodeAddress = $(this).attr('node');
-
-                $.get("script/temperature.php?node=" + nodeAddress, function(data,status){
-                    var gauge = theObject.dxCircularGauge('instance');
-                    if(data){
-                        gauge.value(data);
-                        gauge.subvalues([data]);
-                    }
-                });
-            });
-        }
-        </script>
 
         <script type="text/javascript">
             $(".temperatureGauge").dxCircularGauge({
