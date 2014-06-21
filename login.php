@@ -15,7 +15,7 @@
   <body id="login">
     <div class="container">
 
-      <form class="form-signin" action="index.php" method="post">
+      <form class="form-signin" action="dashboard.php" method="post">
         <h2 class="form-signin-heading">Please Log in</h2>
         <?php echo $error;?>
         <input type="text" name="username"

@@ -1,38 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) header('Location: index.php');
-
 $page = 'profile';
-
-include('script/db.php');
-// Receive POST request
-if($_POST['profile_name'] != '') {
-  $profile_name = $_POST['profile_name'];
-  $iqrf_node = $_POST['iqrf-node'];
-  $atmy = $_POST['xbee-atmy'];
-  $date_check = ($_POST['optionsCheckbox'] == 'true')? 'true':'false';
-  $date = $_POST['date'];
-  $time = $_POST['waktu'];
-  $relay1 = $_POST['relay1'];
-  $relay2 = $_POST['relay2'];
-  $temperature = $_POST['temperature'];
-
-  echo 'profile '.$profile_name .'iqrf '. $iqrf_node .'atmy '. $atmy.'datecheck '.$date_check.'date '.$date.'time '.$time.'relay1 '.$relay1.'relay2 '.$relay2.'temper '.$temperature;
-}
-
-
-// Get available iqrf node and xbee device
-//iqrf
-$iqrf_node = array();
-$result = mysql_query("SELECT * FROM iqrf_device");
-while($foo = mysql_fetch_object($result))
-  array_push($iqrf_node, $foo->node_address);
-
-//xbee
-$xbee_atmy = array();
-$result = mysql_query("SELECT * FROM xbee_device");
-while($foo = mysql_fetch_object($result))
-  array_push($xbee_atmy, $foo->atmy);
 
 include('pages/header.php');
 ?>

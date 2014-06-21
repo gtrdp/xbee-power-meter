@@ -16,7 +16,7 @@
             <a href="about.php"><i class="icon-chevron-right"></i> About</a>
         </li>
         <li>
-            <a href="script/logout.php"><i class="icon-chevron-right"></i> Log out</a>
+            <a href="logout.php"><i class="icon-chevron-right"></i> Log out</a>
         </li>
     </ul>
 </div>
