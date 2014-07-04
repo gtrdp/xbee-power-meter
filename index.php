@@ -8,9 +8,8 @@ if($_SESSION['username'] != ''){
   $username = mysql_real_escape_string($_POST['username']);
   $password = mysql_real_escape_string($_POST['password']);
 
-  $result = $mysqli->query("SELECT * FROM user WHERE username = '$username' AND password = '$password'");
+  $result = $mysqli->query("SELECT * FROM user WHERE username = '$username' AND password = MD5('$password')");
 
-  $result->store_result();
   if($result->num_rows > 0){
     $_SESSION['username'] = $username;
 
@@ -41,7 +40,7 @@ if($_SESSION['username'] != ''){
   <body id="login">
     <div class="container">
 
-      <form class="form-signin" action="dashboard.php" method="post">
+      <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Please Log in</h2>
         <?php if(isset($error)) echo $error;?>
         <input type="text" name="username"
