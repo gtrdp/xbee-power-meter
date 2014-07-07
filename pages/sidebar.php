@@ -9,9 +9,6 @@
         <li <?php if($page == 'xbee') echo 'class="active"';?>>
             <a href="show-device.php"><i class="icon-chevron-right"></i> XBee Network</a>
         </li>
-        <li <?php if($page == 'profile') echo 'class="active"';?>>
-            <a href="show-profile.php"><i class="icon-chevron-right"></i> Profile</a>
-        </li>
         <li <?php if($page == 'about') echo 'class="active"';?>>
             <a href="about.php"><i class="icon-chevron-right"></i> About</a>
         </li>

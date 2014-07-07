@@ -71,18 +71,6 @@ if($_SESSION['username'] == '')
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown <?php if($page == 'profile') echo "active";?>">
-                                <a href="mode.php" role="button" class="dropdown-toggle" data-toggle="dropdown">Profile <i class="caret"></i>
-                                </a>
-                                <ul class="dropdown-menu" id="menu1">
-                                    <li>
-                                        <a href="show-profile.php">View/Edit Profile</a>
-                                    </li>
-                                    <li>
-                                        <a href="add-profile.php">Add New Profile</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li <?php if($page == 'about') echo "class=\"active\"";?>>
                                 <a href="about.php">About</a>
                             </li>
