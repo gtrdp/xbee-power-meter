@@ -1,9 +1,4 @@
 <?php
-session_start();
-
-if($_SESSION['username'] == '')
-    header('Location: index.php');
-
 $page = 'dashboard';
 include('pages/header.php');
 ?> 
