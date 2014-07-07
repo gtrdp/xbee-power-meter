@@ -1,7 +1,6 @@
 <?php
 $page = 'xbee';
 include('pages/header.php');
-include('script/db.php');
 ?>
 
 

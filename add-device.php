@@ -22,10 +22,12 @@ if(isset($_POST['address'])) {
 		exit();
 	}
 
-	$mysqli->query($query);
+	if(!$mysqli->query($query)){
+		
+	}
 	$mysqli->close();
 
-	$message = '<div class="alert alert-success">
+	$message = '<div class="alert alert-success alert-block">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
 				  <strong>Success!</strong> The device has been successfully added to database.
 				</div>';
