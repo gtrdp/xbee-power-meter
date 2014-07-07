@@ -2,6 +2,33 @@
 $page = 'xbee';
 
 include('pages/header.php');
+
+if(isset($_POST['address'])) {
+	$address = $_POST['address'];
+	$sensor_type = $_POST['sensor_type'];
+	$relay_count = $_POST['relay_count'];
+	$relay_name = 'Relay 1,Relay 2,Relay 3,Relay 4,Relay 5,Relay 6,Relay 7,Relay 8';
+	$relay_status = '0,0,0,0,0,0,0,0';
+
+	$query = "INSERT INTO device (address, sensor_type, relay_count, relay_name, relay_status)".
+			" VALUES ('$address', '$sensor_type', $relay_count, '$relay_name', '$relay_status')";
+	
+	$mysqli = new mysqli($database['server'],
+						$database['username'],
+						$database['password'],
+						$database['database']);
+	if(mysqli_connect_errno()){
+		echo mysqli_connect_error();
+		exit();
+	}
+
+	$mysqli->query($query);
+
+	$message = '<div class="alert alert-success">
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <strong>Success!</strong> The device has been successfully added to database.
+				</div>';
+}
 ?>
 
 <div class="container-fluid">
@@ -33,7 +60,7 @@ include('pages/header.php');
 								</ol>
 							</p>
 							
-	                         <form class="form-horizontal" onsubmit="return startSpin();">
+	                         <form class="form-horizontal" method="post">
 	                            <legend>Add New XBee Device</legend>
 	                        
 	                        	<input id="deviceType" type="hidden" value="xbee">
@@ -44,13 +71,30 @@ include('pages/header.php');
 	                                <p class="help-block">Your device address.</p>
 	                              </div>
 	                            </div>
+	                            <div class="control-group">
+	                              <label class="control-label">Number of Relay</label>
+	                              <div class="controls">
+	                                <select name="relay_count">
+	                                	<option disabled="true" selected value="0">Select number.</option>
+	                                	<option value="1">1</option>
+	                                	<option value="2">2</option>
+	                                	<option value="3">3</option>
+	                                	<option value="4">4</option>
+	                                	<option value="5">5</option>
+	                                	<option value="6">6</option>
+	                                	<option value="7">7</option>
+	                                	<option value="8">8</option>
+	                                </select>
+	                                <p class="help-block">Choose desired number of relay.</p>
+	                              </div>
+	                            </div>
 	                        	<div class="control-group">
 	                              <label class="control-label">Sensor Type</label>
 	                              <div class="controls">
-	                                <select name="sensor">
+	                                <select name="sensor_type">
 	                                	<option disabled="true" selected value="0">Select sensor.</option>
-	                                	<option value="1">Temperature</option>
-	                                	<option value="2">Power usage</option>
+	                                	<option value="temperature">Temperature</option>
+	                                	<option value="power">Power usage</option>
 	                                </select>
 	                                <p class="help-block">Choose appropriate sensor.</p>
 	                              </div>
@@ -70,4 +114,4 @@ include('pages/header.php');
     </div>
     <hr>
 
-<?php include('pages/footer.php'); ?>
+<?php include('pages/footer.php');?>

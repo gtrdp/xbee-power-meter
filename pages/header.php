@@ -3,6 +3,12 @@ session_start();
 
 if($_SESSION['username'] == '')
     header('Location: index.php');
+
+// define global variable for database connection
+$database['server'] = 'localhost';
+$database['username'] = 'root';
+$database['password'] = 'root';
+$database['database'] = 'xbee_power';
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +47,7 @@ if($_SESSION['username'] == '')
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> John Doe <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <?php echo $_SESSION['username']; ?> <i class="caret"></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>

@@ -25,70 +25,22 @@ include('pages/header.php');
                         <?php else: ?>
 
                         <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">XBee Control Panel</div>
-                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="muted pull-left">Dashboard</div>
+                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More Device</span></a></div>
                         </div>
                         <div class="block-content collapse in">
-                            <div class="row-fluid">
-                                <div class="span6">
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label">Relay 1</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-success">Relay 2</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-warning">Relay 1</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-important">Relay 2</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-info">Relay 1</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-inverse">Relay 2</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label">Relay 1</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" >
-                                                </div>
-                                            </div>
-                                            <div class="chart-bottom-heading" style="margin: 15px;">
-                                                <span class="label label-success">Relay 2</span>
-                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <br>
-                                    <div node="<?php echo $node_address; ?>" class="temperatureGauge" style="height:340px"></div>
-                                </div>
-                            
+                            <div class="hero-unit">
+                              <h1>Welcome <?php echo $_SESSION['username']; ?>!</h1>
+                              <p>To start click this button below.</p>
+                              <p>
+                                <a class="btn btn-success btn-large" href="add-device.php">
+                                  Add new device
+                                </a>
+                                <a class="btn btn-warning btn-large" href="show-device.php">
+                                  View device
+                                </a>
+                              </p>
+                            </div>                            
                         </div>
                         <?php endif; ?>
                     </div>
