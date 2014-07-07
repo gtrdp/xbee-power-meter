@@ -3,12 +3,7 @@ session_start();
 
 if($_SESSION['username'] == '')
     header('Location: index.php');
-
-// define global variable for database connection
-$database['server'] = 'localhost';
-$database['username'] = 'root';
-$database['password'] = 'root';
-$database['database'] = 'xbee_power';
+include_once 'script/mysql.php';
 ?>
 
 <!DOCTYPE html>

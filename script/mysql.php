@@ -1,7 +1,14 @@
 <?php
+// define global variable for database connection
+$database['server'] = 'localhost';
+$database['username'] = 'root';
+$database['password'] = 'root';
+$database['database'] = 'xbee_power';
+
 $mysqli = new mysqli('localhost', 'root', 'root', 'xbee_power');
-if(mysqli_connect_errno()) {
-	echo(mysqli_connect_error());
+
+if($mysqli->connect_errno){
+	echo $mysqli->connect_error;
 	exit();
 }
 ?>

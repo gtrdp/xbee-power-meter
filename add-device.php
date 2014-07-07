@@ -12,18 +12,9 @@ if(isset($_POST['address'])) {
 
 	$query = "INSERT INTO device (address, sensor_type, relay_count, relay_name, relay_status)".
 			" VALUES ('$address', '$sensor_type', $relay_count, '$relay_name', '$relay_status')";
-	
-	$mysqli = new mysqli($database['server'],
-						$database['username'],
-						$database['password'],
-						$database['database']);
-	if(mysqli_connect_errno()){
-		echo mysqli_connect_error();
-		exit();
-	}
 
 	if(!$mysqli->query($query)){
-		
+		echo $mysqli->error;
 	}
 	$mysqli->close();
 

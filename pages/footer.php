@@ -22,14 +22,14 @@
 
             //boostrap-switch
             $('.button-relay').on('switch-change', function () {
-                // Get the atmy and relay ID
-                var atmy = $(this).attr('atmy');
+                // Get the address and relay ID
+                var address = $(this).attr('address');
                 var relayID = $(this).attr('relay-id');
 
                 //Ajax to change the XBee's relay
                 var status = $(this).find('.relay-checkbox').is(':checked')? 'on': 'off';
                 // $.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
-                console.log('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
+                console.log('script/action.php?status=' + status + '&relay=' + relayID + '&address=' + address);
             });
         });
         </script>
