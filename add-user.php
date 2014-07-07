@@ -7,17 +7,33 @@ if(isset($_POST['username'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$query = "INSERT INTO user (username, password) VALUES ('$username', MD5('$password'))";
+	if(isset($_POST['id'])){
+		$id = $_POST['id'];
+		$query = "UPDATE user SET username = '$username', password = MD5('$password') WHERE id = $id";
+	}else{
+		$query = "INSERT INTO user (username, password) VALUES ('$username', MD5('$password'))";
+	}
 
 	if(!$mysqli->query($query)){
-		echo $mysqli->error;
+		echo $query;
+		exit();
 	}
-	$mysqli->close();
 
 	$message = '<div class="alert alert-success alert-block">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Success!</strong> The user has been successfully added to database.
+				  <strong>Success!</strong> Operation completed.
 				</div>';
+}
+
+if(isset($_GET['id'])){
+	$query = "SELECT * FROM user WHERE id = " . $_GET['id'];
+
+	if($result = $mysqli->query($query)) {
+		$row = $result->fetch_object();
+	}else{
+	    echo $mysqli->error;
+	    exit();
+	}
 }
 ?>
 
@@ -43,7 +59,12 @@ if(isset($_POST['username'])) {
 	                            <div class="control-group">
 	                              <label class="control-label">Username</label>
 	                              <div class="controls">
-	                                <input name="username" id="username" class="input-xlarge" type="text">
+	                                <input
+	                                	name="username"
+	                                	id="username"
+	                                	class="input-xlarge"
+	                                	type="text"
+	                                	value="<?php if(isset($row->username)) echo $row->username; ?>">
 	                                <p class="help-block">Your username.</p>
 	                              </div>
 	                            </div>
@@ -54,9 +75,17 @@ if(isset($_POST['username'])) {
 	                                <p class="help-block">Your password.</p>
 	                              </div>
 	                            </div>
+
+	                            <?php if(isset($row->id)): ?>
+	                            	<input name="id" class="input-xlarge" type="hidden" value="<?php echo $row->id; ?>">
+	                            <?php endif; ?>
 	                        
 	                            <div class="form-actions">
-	                              <button id="buttonSubmit" class="btn btn-primary">Add This User</button>
+	                              <?php if(isset($row->id)): ?>
+	                              	<button id="buttonSubmit" class="btn btn-primary">Edit This User</button>
+	                              <?php else: ?>
+	                              	<button id="buttonSubmit" class="btn btn-primary">Add This User</button>
+	                              <?php endif; ?>
 	                              <button type="reset" class="btn">Cancel</button>
 	                            </div>
 	                        </form>
