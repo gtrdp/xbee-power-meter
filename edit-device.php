@@ -1,35 +1,40 @@
 <?php
 $page = 'xbee';
 
+if(!isset($_GET['address'])){
+	header('Location: show-device.php');
+}
+
 include('pages/header.php');
 
 if(isset($_POST['address'])) {
 	$address = $_POST['address'];
 	$sensor_type = $_POST['sensor_type'];
 	$relay_count = $_POST['relay_count'];
-	$relay_name = 'Relay 1,Relay 2,Relay 3,Relay 4,Relay 5,Relay 6,Relay 7,Relay 8';
-	$relay_status = '0,0,0,0,0,0,0,0';
+	$relay_name = '';
+	foreach ($_POST['status'] as $key => $value) {
+		$relay_name .= $value . ',';
+	}
 
-	$query = "INSERT INTO device (address, sensor_type, relay_count, relay_name, relay_status)".
-			" VALUES ('$address', '$sensor_type', $relay_count, '$relay_name', '$relay_status')";
-	
-	$mysqli = new mysqli($database['server'],
-						$database['username'],
-						$database['password'],
-						$database['database']);
-	if(mysqli_connect_errno()){
-		echo mysqli_connect_error();
+	$query = "UPDATE device SET sensor_type = '$sensor_type', relay_count = $relay_count, relay_name = '$relay_name' WHERE address = '$address'";
+
+	if(!$mysqli->query($query)){
+		echo $mysqli->error;
 		exit();
 	}
 
-	$mysqli->query($query);
-	$mysqli->close();
-
 	$message = '<div class="alert alert-success">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Success!</strong> The device has been successfully added to database.
+				  <strong>Success!</strong> The device has been successfully edited.
 				</div>';
 }
+
+$result = $mysqli->query("SELECT * FROM device WHERE address='" . $_GET['address'] . "'");
+$row = $result->fetch_object();
+
+$relay_status = explode(',', $row->relay_name);
+
+$mysqli->close();
 ?>
 
 <div class="container-fluid">
@@ -43,33 +48,29 @@ if(isset($_POST['address'])) {
 	            <!-- block -->
 	            <div class="block">
 	                <div class="navbar navbar-inner block-header">
-	                    <div class="muted pull-left">Add New XBee Device</div>
+	                    <div class="muted pull-left">Edit XBee Device</div>
 	                </div>
 	                <div class="block-content collapse in">
 	                    <div class="span12">
-	                    <legend>Read Me First</legend>
-	                    	<div class="alert alert-block">
-								<a class="close" data-dismiss="alert" href="#">&times;</a>
-								<h4 class="alert-heading">Warning!</h4>
-								Please make sure that you have read this information carefully
-								before you proceed to further process. Thank you.
-							</div>
-							<p>Before proceed, please make sure that your device meets these following conditions:
-								<ol>
-									<li>The device is equipped with a sensor.</li>
-									
-								</ol>
-							</p>
-							
 	                         <form class="form-horizontal" method="post">
-	                            <legend>Add New XBee Device</legend>
-	                        
-	                        	<input id="deviceType" type="hidden" value="xbee">
+	                            <legend>Edit XBee Device</legend>
 	                            <div class="control-group">
 	                              <label class="control-label">XBee Address</label>
 	                              <div class="controls">
-	                                <input name="address" id="address" class="input-xlarge" type="text">
+	                                <input value="<?php echo $row->address; ?>" class="input-xlarge" type="text" disabled>
+	                                <input value="<?php echo $row->address; ?>" class="input-xlarge" type="hidden" name="address">
 	                                <p class="help-block">Your device address.</p>
+	                              </div>
+	                            </div>
+	                            <div class="control-group">
+	                              <label class="control-label">Sensor Type</label>
+	                              <div class="controls">
+	                                <select name="sensor_type">
+	                                	<option disabled="true" value="0">Select sensor.</option>
+	                                	<option value="temperature" <?php if($row->sensor_type == 'temperature') echo 'selected'; ?>>Temperature</option>
+	                                	<option value="power" <?php if($row->sensor_type == 'power') echo 'selected'; ?>>Power usage</option>
+	                                </select>
+	                                <p class="help-block">Choose appropriate sensor.</p>
 	                              </div>
 	                            </div>
 	                            <div class="control-group">
@@ -77,32 +78,29 @@ if(isset($_POST['address'])) {
 	                              <div class="controls">
 	                                <select name="relay_count">
 	                                	<option disabled="true" selected value="0">Select number.</option>
-	                                	<option value="1">1</option>
-	                                	<option value="2">2</option>
-	                                	<option value="3">3</option>
-	                                	<option value="4">4</option>
-	                                	<option value="5">5</option>
-	                                	<option value="6">6</option>
-	                                	<option value="7">7</option>
-	                                	<option value="8">8</option>
+	                                	<option value="1" <?php if($row->relay_count == 1) echo 'selected'; ?>>1</option>
+	                                	<option value="2" <?php if($row->relay_count == 2) echo 'selected'; ?>>2</option>
+	                                	<option value="3" <?php if($row->relay_count == 3) echo 'selected'; ?>>3</option>
+	                                	<option value="4" <?php if($row->relay_count == 4) echo 'selected'; ?>>4</option>
+	                                	<option value="5" <?php if($row->relay_count == 5) echo 'selected'; ?>>5</option>
+	                                	<option value="6" <?php if($row->relay_count == 6) echo 'selected'; ?>>6</option>
+	                                	<option value="7" <?php if($row->relay_count == 7) echo 'selected'; ?>>7</option>
+	                                	<option value="8" <?php if($row->relay_count == 8) echo 'selected'; ?>>8</option>
 	                                </select>
 	                                <p class="help-block">Choose desired number of relay.</p>
 	                              </div>
 	                            </div>
 	                        	<div class="control-group">
-	                              <label class="control-label">Sensor Type</label>
+	                              <label class="control-label">Relay Name</label>
 	                              <div class="controls">
-	                                <select name="sensor_type">
-	                                	<option disabled="true" selected value="0">Select sensor.</option>
-	                                	<option value="temperature">Temperature</option>
-	                                	<option value="power">Power usage</option>
-	                                </select>
-	                                <p class="help-block">Choose appropriate sensor.</p>
+	                              <?php for($i = 0; $i < $row->relay_count; $i++): ?>
+	                              	<input value="<?php echo $relay_status[$i]; ?>" name="status[]" class="input-xlarge" type="text" style="margin-bottom: 5px;"><br>
+	                              <?php endfor; ?>
 	                              </div>
 	                            </div>
 	                        
 	                            <div class="form-actions">
-	                              <button id="buttonSubmit" class="btn btn-primary">Add This Device</button>
+	                              <button id="buttonSubmit" class="btn btn-primary">Edit This Device</button>
 	                              <button type="reset" class="btn">Cancel</button>
 	                            </div>
 	                        </form>
