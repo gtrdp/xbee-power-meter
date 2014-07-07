@@ -68,6 +68,19 @@ include_once 'script/mysql.php';
                                     </li>
                                 </ul>
                             </li>
+                            <li class="dropdown <?php if($page == 'user') echo "active";?>">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">User Management <b class="caret"></b>
+
+                                </a>
+                                <ul class="dropdown-menu" id="menu1">
+                                    <li>
+                                        <a href="show-user.php">View User</a>
+                                    </li>
+                                    <li>
+                                        <a href="add-user.php">Add New User</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li <?php if($page == 'about') echo "class=\"active\"";?>>
                                 <a href="about.php">About</a>
                             </li>
