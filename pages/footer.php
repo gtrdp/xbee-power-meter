@@ -11,7 +11,7 @@
         <script src="vendors/raphael-min.js"></script>
         <script src="vendors/morris.min.js"></script>
 
-        <?php if ($page == 'dashboard' || $page == 'xbee' || $page == 'profile'): ?>
+        <?php if ($page == 'dashboard' || $page == 'xbee'): ?>
         <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script type="text/javascript" src="vendors/chartjs/knockout-3.0.0.js"></script>
         <script type="text/javascript" src="vendors/chartjs/globalize.min.js"></script>
@@ -85,7 +85,8 @@
                 subvalues: [27]
             });
         </script>
-
+        <?php endif; ?>
+        <?php if(isset($power)): ?>
         <!-- For Morris Graph-->
         <script type="text/javascript">
             var graph = Morris.Line({

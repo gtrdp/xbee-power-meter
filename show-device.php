@@ -2,6 +2,18 @@
 $page = 'xbee';
 include('pages/header.php');
 
+if(isset($_GET['delete'])){
+    if(!$mysqli->query("DELETE FROM device WHERE id = " . $_GET['delete'])){
+        echo $mysqli->error;
+        exit();
+    }
+
+    $message = '<div class="alert alert-success alert-block">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>Success!</strong> The device has been successfully deleted from database.
+                </div>';
+}
+
 if(isset($_GET['address'])){
     $query = "SELECT * FROM device WHERE address = '".$_GET['address']."'";
 
@@ -31,6 +43,7 @@ if(isset($_GET['address'])){
         <?php include('pages/sidebar.php'); ?>
 		
 		<div class="span9" id="content">
+        <?php echo $message; ?>
             <div class="row-fluid">
                 <div class="span12">
                     <!-- block -->
@@ -54,9 +67,9 @@ if(isset($_GET['address'])){
                                         <span class="badge badge-success">View Table</span>
                                     </a>
                                     <a href="edit-device.php?id=<?php echo $row->id; ?>">
-                                        <span class="badge badge-warning">Edit Device</span>
+                                        <span class="badge badge-info">Edit Device</span>
                                     </a>
-                                    <a href="edit-device.php?id=<?php echo $row->id; ?>">
+                                    <a href="#" onclick="confirmDelete(<?php echo $row->id; ?>)">
                                         <span class="badge badge-important">Delete Device</span>
                                     </a>
                                 </div>
@@ -96,7 +109,7 @@ if(isset($_GET['address'])){
                                     </div>
                                     <div class="span6">
                                         <br><br>
-                                        <?php if($row->sensor_type == 'power'): ?>
+                                        <?php if($row->sensor_type == 'power'): $power = true;?>
                                             <div id="powerchart" style="height: 340px;"></div>
                                         <?php elseif($row->sensor_type == 'temperature'): ?>
                                             <div node="<?php echo $row->address; ?>" class="temperatureGauge" style="height:340px"></div>
@@ -138,7 +151,11 @@ if(isset($_GET['address'])){
                                       <a href="show-device.php?address=<?php echo $row->address; ?>" class="btn btn-mini btn-warning">
                                         View Device
                                       </a>
-                                      <a class="btn btn-mini btn-danger">
+                                      <a href="edit-device.php?address=<?php echo $row->address; ?>" class="btn btn-mini btn-info">
+                                        Edit Device
+                                      </a>
+                                      <a class="btn btn-mini btn-danger"
+                                        onclick="confirmDelete(<?php echo $row->id; ?>)">
                                         Delete Device
                                       </a>
                                   </td>
@@ -156,6 +173,15 @@ if(isset($_GET['address'])){
     </div>
 </div>
 </div>
-    <hr>
+
+<script>
+    function confirmDelete(id) {
+        console.log('click');
+        if(confirm('Are you sure?')){
+            window.location.href='show-device.php?delete=' + id;
+        }
+    }
+</script>
+
 
 <?php include('pages/footer.php'); ?>

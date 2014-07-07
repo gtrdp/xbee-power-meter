@@ -46,10 +46,6 @@ include_once 'script/mysql.php';
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="profile.php">My Profile</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
                                         <a tabindex="-1" href="logout.php">Logout</a>
                                     </li>
                                 </ul>
