@@ -38,7 +38,7 @@ include_once 'script/mysql.php';
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="dashboard.php">{ WSN+IP }</a>
+                    <a class="brand" href="dashboard.php">XBee</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">

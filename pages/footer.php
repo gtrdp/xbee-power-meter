@@ -1,6 +1,6 @@
             <footer>
-                <p>Wireless Sensor Network and Internet Protocol Interoperability<br>
-                &copy; Guntur D Putra 2013</p>
+                <p>XBee Control Panel<br>
+                &copy; <a target="_blank" href="http://twitter.com/gunturdputra">Guntur D Putra</a> 2014</p>
             </footer>
         </div>
         <!--/.fluid-container-->
