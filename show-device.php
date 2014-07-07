@@ -26,55 +26,57 @@ include('script/db.php');
 
                         <div class="navbar navbar-inner block-header">
                             <div class="muted pull-left">XBee Control Panel</div>
-                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">Edit Device</span></a></div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="row-fluid">
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
-                                            </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-success">Relay 1</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label">Relay 1</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" >
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
-                                            </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-success">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-warning">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
                                             </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-important">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-info">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
                                             </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-inverse">Relay 2</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
+                                                </div>
+                                            </div>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
+                                            </div>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-success">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
@@ -111,55 +113,57 @@ include('script/db.php');
 
                         <div class="navbar navbar-inner block-header">
                             <div class="muted pull-left">XBee Control Panel</div>
-                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="pull-right"><a href="show-device.php"> <span class="badge badge-warning">Edit Device</span></a></div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="row-fluid">
                                         <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
-                                            </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-success">Relay 1</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label">Relay 1</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" >
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
-                                            </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-success">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row-fluid">
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-warning">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
                                             </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-important">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="span6">
-                                            <div class="chart chart-relay" data-percent="0">
-                                                <span class="status-relay">OFF</span>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-info">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
                                             </div>
-                                            <div class="chart-bottom-heading">
-                                                <span class="label label-info">Relay 2</span><br><br>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-inverse">Relay 2</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
+                                                </div>
+                                            </div>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label">Relay 1</span>
+                                                <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
+                                                    <input class="relay-checkbox" type="checkbox" >
+                                                </div>
+                                            </div>
+                                            <div class="chart-bottom-heading" style="margin: 15px;">
+                                                <span class="label label-success">Relay 2</span>
                                                 <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
                                                     <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
                                                 </div>
