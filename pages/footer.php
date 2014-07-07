@@ -19,28 +19,17 @@
     
         <script>
         $(function() {
-            // Easy pie charts
-            $('.chart').easyPieChart({animate: 3000, barColor: '#006600'});
 
             //boostrap-switch
             $('.button-relay').on('switch-change', function () {
-                var value = $(this).parent().siblings('.chart-relay').attr('data-percent');
-
-                // Find status
-                $(this).parent().siblings('.chart-relay').find('.status-relay').text(value == 100 ? 'OFF':'ON');
-                // Update the pie chart
-                $(this).parent().siblings('.chart-relay').data('easyPieChart').update(100 - value);
-                // Update the attribute
-                $(this).parent().siblings('.chart-relay').attr('data-percent', 100 - value);
-
                 // Get the atmy and relay ID
                 var atmy = $(this).attr('atmy');
                 var relayID = $(this).attr('relay-id');
 
                 //Ajax to change the XBee's relay
                 var status = $(this).find('.relay-checkbox').is(':checked')? 'on': 'off';
-                console.log(status);
-                $.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
+                // $.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
+                console.log('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
             });
         });
         </script>
