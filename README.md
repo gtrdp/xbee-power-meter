@@ -4,6 +4,10 @@ This program is a dashboard prototype for IoT implementation with XBee. The curr
 
 &copy; @gunturdputra 2014.
 
+If you are using our project in your work, please cite our publication of this project:
+S. B. Wibowo, G. D. Putra and B. S. Hantono, "Development of embedded gateway for Wireless Sensor Network and Internet Protocol interoperability," 2014 6th International Conference on Information Technology and Electrical Engineering (ICITEE), Yogyakarta, 2014, pp. 1-4.
+[doi: 10.1109/ICITEED.2014.7007920](https://doi.org/10.1109/ICITEED.2014.7007920)
+
 Setup Instructions
 ------------------
 1. Make sure you have this following software installed on your computer:
